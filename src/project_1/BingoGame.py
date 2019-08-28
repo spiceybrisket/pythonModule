@@ -14,22 +14,25 @@ def play_game():
 
         # get players guess
         called_number = int(input("Please enter a number between 1 and 80 "))
-
-        # look to see if that number has been guessed before
-        if called_number not in guesses:
-            guesses.append(called_number)
-
-            # handle if number is in the bingo card
-            if called_number in bingo_card:
-                number_of_hits += 1
-                print("Hit, " + str(10 - number_of_hits) + " left to guess")
-            else:
-                print("Miss, " + str(10 - number_of_hits) + " left to guess")
+        if (called_number < 1) or (called_number > 80):
+            print("invalid choice " + str(10 - number_of_hits) + " left to guess")
         else:
-            print("You have already tried that number")
+            # look to see if that number has been guessed before
+            if called_number not in guesses:
+                guesses.append(called_number)
+
+                # handle if number is in the bingo card
+                if called_number in bingo_card:
+                    number_of_hits += 1
+                    print("Hit, " + str(10 - number_of_hits) + " left to guess")
+                else:
+                    print("Miss, " + str(10 - number_of_hits) + " left to guess")
+            else:
+                print("You have already tried that number")
 
     # print bingo and end once 10 hits
     print("BINGO!!")
 
-#te7st
+
+# te7st
 play_game()
